@@ -3,7 +3,7 @@ from flask import Flask, jsonify, request, render_template
 app = Flask(__name__)
 
 # TODO: Replace None with a data structure
-tasks = None
+tasks = {id: int, name: str, Completed: boolean}
 
 @app.route('/')
 def index():
@@ -18,6 +18,7 @@ def get_tasks():
 @app.route('/tasks', methods=['POST'])
 def add_task():
     task_data = request.json
+    print(task_data)
     if 'task' in task_data:
         # TODO: Create Task from task_data
         # Name of Task lives at task_data['task']
